@@ -3,24 +3,7 @@ const process = require('process');
 const {safeLoad} = require('js-yaml');
 const {readFileSync} = require('fs');
 
-
-
-const SetEnv = (node_env, rails_env)=>{
-  let env = node_env || rails_env;
-  switch (env){
-    case undefined:
-      return 'development';
-    case 'staging':
-      return 'production';
-    default:
-      return env;
-  }
-};
-
-const {NODE_ENV, RAILS_ENV} = process.env;
-process.env.NODE_ENV = SetEnv(NODE_ENV, RAILS_ENV);
 const env = process.env;
-
 const configPath = resolve('config', 'webpack');
 const loadersDir = join(__dirname, 'loaders');
 const paths = safeLoad(readFileSync(join(configPath, 'paths.yml'), 'utf8'));
