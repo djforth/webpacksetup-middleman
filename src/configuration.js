@@ -4,7 +4,7 @@ const {safeLoad} = require('js-yaml');
 const {readFileSync} = require('fs');
 
 const env = process.env;
-const configPath = resolve('config', 'webpack');
+const configPath = resolve('config');
 const loadersDir = join(__dirname, 'loaders');
 const paths = safeLoad(readFileSync(join(configPath, 'paths.yml'), 'utf8'));
 const devServer = safeLoad(readFileSync(join(configPath, 'development.server.yml'), 'utf8'));
