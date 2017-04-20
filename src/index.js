@@ -17,6 +17,8 @@ const {
   , removeEmpty
 } = require('webpack-config-utils');
 
+console.log('env', env.NODE_ENV)
+
 const {ifDevelopment, ifProduction} = getIfUtils(env.NODE_ENV);
 
 if (env.NODE_ENV === 'production'){

@@ -3,7 +3,10 @@ const process = require('process');
 const {safeLoad} = require('js-yaml');
 const {readFileSync} = require('fs');
 
+const {NODE_ENV} = process.env;
+process.env.NODE_ENV = (NODE_ENV) ? NODE_ENV : 'development';
 const env = process.env;
+
 const configPath = resolve('config');
 const loadersDir = join(__dirname, 'loaders');
 const paths = safeLoad(readFileSync(join(configPath, 'paths.yml'), 'utf8'));
