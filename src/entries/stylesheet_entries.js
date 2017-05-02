@@ -9,7 +9,7 @@ const extensionGlob = `*{${paths.extensions.join(',')}}*`;
 const stylesheetEntries = ()=>{
   let pathToCSS = resolve(paths.source, paths.stylesheets_entry, extensionGlob);
   return sync(pathToCSS).reduce((map, entry)=>{
-    const bname = basename(entry, extname(entry));
+    const bname = paths.stylesheets_entry + '/' +  basename(entry, extname(entry));
     map[bname] = './'+ paths.stylesheets_entry + '/' + basename(entry);
     return map;
   }, {});

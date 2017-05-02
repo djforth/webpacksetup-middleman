@@ -24,18 +24,19 @@ const timeStamp = date.getTime();
 const basePath = `${paths.entry}/${timeStamp}`;
 
 const publicPathCheck = (node_env, ds, aws)=>{
+  console.log(node_env === 'development', ds.enabled)
   if (node_env === 'development' && ds.enabled){
-    return `http://${devServer.host}:${devServer.port}/`;
+    return `http://${ds.host}:${ds.port}/`;
   } else if (aws){
     let cloudfront = aws[node_env].cloudfront;
     let baseDir = aws[node_env].baseDir;
     return `${cloudfront}/${baseDir}/${basePath}/`;
   }
 
-  return `/${paths.entry}/`;
+  return `/`;
 };
 
-const publicPath = publicPathCheck(env.RAILS_ENV, devServer, amazonS3);
+const publicPath = publicPathCheck(env.NODE_ENV, devServer, amazonS3);
 
 module.exports = {
   amazonS3

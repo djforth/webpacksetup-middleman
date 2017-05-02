@@ -17,11 +17,7 @@ const {
 const {ifProduction} = getIfUtils(env.NODE_ENV);
 
 module.exports = [
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'common'
-    , chunks: Object.keys(PackEntries)
-  })
-  , new ExtractTextPlugin(
+  new ExtractTextPlugin(
     ifProduction('[name]-[hash].css', '[name].css')
   )
   , new LodashModuleReplacementPlugin

@@ -27,7 +27,7 @@ if (env.NODE_ENV === 'production'){
 
 let plugins = require('./plugins');
 let entry = require('./entries');
-
+console.log('entry >>>>>>', entry)
 const modules = removeEmpty([
   resolve('src')
   , resolve(paths.source, paths.entry)
@@ -56,9 +56,9 @@ const config = {
   , entry
   , output: {
     filename: ifProduction('[name]-[chunkhash].js', '[name].js')
-    , path: resolve(paths.output, paths.entry)
+    , path: resolve(paths.output)
     , pathinfo: true
-    , publicPath: ifDevelopment(`/${paths.entry}/`)
+    , publicPath: ifDevelopment(`/${paths.output}/`)
   }
 
   , module: {

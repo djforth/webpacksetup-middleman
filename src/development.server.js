@@ -4,7 +4,6 @@ const {resolve} = require('path');
 const merge = require('webpack-merge');
 const config = require('./index');
 const {devServer, publicPath, paths} = require('./configuration.js');
-
 module.exports = merge(config, {
   devServer: {
     hot: true
@@ -12,7 +11,7 @@ module.exports = merge(config, {
     , port: devServer.port
     , compress: true
     , historyApiFallback: true
-    , contentBase: resolve(paths.output, paths.entry)
+    , contentBase: resolve(paths.output)
     , publicPath
   }
 });
