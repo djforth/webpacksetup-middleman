@@ -30,7 +30,10 @@ module.exports = {
         }
       }
       , 'resolve-url-loader'
-      , 'postcss-loader'
+      , {
+        loader: 'postcss-loader'
+        , options: { sourceMap: true }
+      }
       , {
         loader: 'sass-loader'
         , options: {
