@@ -34,7 +34,7 @@
     "js-yaml": "^3.8.4",
     "lodash-webpack-plugin": "^0.11.3",
     "node-sass": "^4.5.2",
-    "path-complete-extname": "^0.1.0",
+    "path-complete-extname": "^1.0.0",
     "postcss-discard-duplicates": "^2.1.0",
     "postcss-import": "^9.1.0",
     "postcss-loader": "^2.0.3",
